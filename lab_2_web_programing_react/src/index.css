@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+.torn-paper {
+    background-color: #fbf2dc;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.06'/%3E%3C/svg%3E");
+    box-shadow: inset 0 0 50px rgba(160, 110, 50, 0.25);
+    clip-path: polygon( 0% 0.6%, 4% 0%, 9% 0.7%, 15% 0.2%, 22% 0.8%, 28% 0.1%, 35% 0.7%, 42% 0.3%, 49% 0.9%, 56% 0.1%, 63% 0.6%, 70% 0.2%, 78% 0.8%, 85% 0%, 92% 0.7%, 97% 0.2%, 100% 0.8%, 99.7% 8%, 100% 16%, 99.6% 25%, 100% 35%, 99.5% 45%, 100% 55%, 99.6% 67%, 100% 78%, 99.5% 88%, 100% 99.2%, 96% 99.8%, 90% 99.3%, 83% 100%, 75% 99.4%, 68% 99.9%, 60% 99.3%, 52% 99.8%, 44% 99.2%, 36% 100%, 28% 99.4%, 20% 99.9%, 13% 99.3%, 6% 99.8%, 0% 99.1%, 0.5% 88%, 0% 77%, 0.4% 65%, 0% 53%, 0.5% 41%, 0% 29%, 0.4% 18%, 0% 8% );
+}
+
+.torn-paper-wrapper {
+    filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.45));
+
+}
+
+.dark .torn-paper {
+    background-color: var(--color-dark-card);
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
+}
+
+@font-face {
+    font-family: 'MyCustomFont';
+    src: url('./assets/fonts/Typewriter.otf') format('otf'), url('./assets/fonts/Typewriter.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@theme {
+    --font-custom: "MyCustomFont", Georgia, serif;
+    --color-parchment-base: #fbf2dc;
+    --color-parchment-dark: #382b1d;
+    --color-parchment-border: #d8c39d;
+    --color-parchment-text: #5c4a32;
+    --color-parchment-muted: #7c6a50;
+
+    --color-dark-base: #1c1814;
+    --color-dark-card: #27221c;
+    --color-dark-border: #4a3b2c;
+    --color-dark-text: #e6dcce;
+    --color-dark-muted: #b8a38c;
+}
+
+body {
+    font-family: var(--font-custom);
+}
